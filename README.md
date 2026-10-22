@@ -21,7 +21,6 @@ This prototype answers those three questions from one page.
 
 ## Screenshots
 
-> Add your own screenshots to `docs/screenshots/` using the file names below.
 
 | Overview and scorecard | Bank verification |
 |---|---|
