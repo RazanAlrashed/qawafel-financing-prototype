@@ -1,6 +1,5 @@
 # Financing Readiness Prototype
 
-**Qawafel technical assessment, Task 3 (Graduate Software Engineer)**
 
 A small dashboard that turns a wholesaler's 12 months of invoices and bank deposits into a clear,
 evidence-based view for a financing decision. It does not approve or reject anyone. It shows the
