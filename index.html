@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
+  <title>
+   Financing readiness: Red Sea Beverages (sample data)
+  </title>
+  <style>
+   :root {
+    --bg:#f3efe7;
+    --card:#fffdf9;
+    --ink:#040815;
+    --mut:#5d5a55;
+    --line:#e0d9cc;
+    --gold:#b79a6a;
+    --acc:#1f7a5a;
+    --warn:#a96a0a;
+    --bad:#b42318;
+    --bar:#b79a6a;
+    color-scheme:light;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media(prefers-color-scheme:dark) {
+    :root:not([data-theme="light"]) {
+    --bg:#040815;
+    --card:#0d1424;
+    --ink:#f3efe7;
+    --mut:#a5a39d;
+    --line:#222a3b;
+    --gold:#c9ad7c;
+    --acc:#4cc29a;
+    --warn:#e3a947;
+    --bad:#f27d70;
+    --bar:#c9ad7c;
+    color-scheme:dark
+}
+}
+:root[data-theme="dark"] {
+    --bg:#040815;
+    --card:#0d1424;
+    --ink:#f3efe7;
+    --mut:#a5a39d;
+    --line:#222a3b;
+    --gold:#c9ad7c;
+    --acc:#4cc29a;
+    --warn:#e3a947;
+    --bad:#f27d70;
+    --bar:#c9ad7c;
+    color-scheme:dark
+}
+html {
+    scroll-padding-top:env(safe-area-inset-top,0px)
+}
+*,*:before,*:after {
+    box-sizing:inherit
+}
+body {
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif
+}
+main {
+    max-width:980px;
+    margin:0 auto;
+    padding:0 16px 48px
+}
+header.top {
+    background:#040815;
+    border-bottom:3px solid #b79a6a;
+    margin:0 0 18px
+}
+header.top .in {
+    max-width:980px;
+    margin:0 auto;
+    padding:22px 16px
+}
+header.top h1 {
+    color:#f3efe7;
+    margin:0 0 4px
+}
+header.top .sub {
+    color:#b9b5ab;
+    margin:0
+}
+h1 {
+    font:600 26px/1.2 Georgia,"Times New Roman",serif;
+    margin:0 0 4px
+}
+h2 {
+    font:600 17px/1.3 Georgia,serif;
+    margin:0 0 10px;
+    border-left:3px solid var(--gold);
+    padding-left:8px
+}
+.sub {
+    color:var(--mut);
+    margin:0 0 18px
+}
+.card {
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px;
+    margin-bottom:14px
+}
+.verdict {
+    border-left:6px solid var(--c);
+}
+.verdict .big {
+    font:600 30px/1.1 Georgia,serif
+}
+.grid {
+    display:grid;
+    gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr))
+}
+.k {
+    font:600 22px/1.2 Georgia,serif
+}
+.l {
+    color:var(--mut);
+    font-size:13px
+}
+label {
+    display:block;
+    font-size:13px;
+    color:var(--mut)
+}
+input[type=number] {
+    width:100%;
+    padding:8px;
+    font-size:16px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--bg);
+    color:var(--ink)
+}
+input[type=range] {
+    width:100%
+}
+.scroll {
+    overflow-x:auto
+}
+table {
+    border-collapse:collapse;
+    width:100%;
+    font-size:14px
+}
+th,td {
+    padding:7px 8px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+    white-space:nowrap
+}
+th {
+    color:var(--mut);
+    font-weight:600
+}
+td.n,th.n {
+    text-align:right
+}
+.tag {
+    display:inline-block;
+    padding:1px 8px;
+    border-radius:99px;
+    font-size:12px;
+    border:1px solid currentColor
+}
+.bad {
+    color:var(--bad)
+}
+.warn {
+    color:var(--warn)
+}
+.ok {
+    color:var(--acc)
+}
+ul {
+    margin:0;
+    padding-left:20px
+}
+li {
+    margin:4px 0
+}
+textarea {
+    width:100%;
+    height:140px;
+    font:12px monospace;
+    background:var(--bg);
+    color:var(--ink);
+    border:1px solid var(--line)
+}
+svg text {
+    fill:var(--mut);
+    font-size:11px
+}
+  </style>
+ </head>
+ <body>
+  <header class="top">
+   <div class="in">
+    <h1>
+     Red Sea Beverages Trading: financing readiness
+    </h1>
+    <p class="sub">
+     Sample (made-up) data: 12 months of invoices, Oct 2025 to Sep 2026. Report date 30 Sep 2026. All amounts in SAR.
+    </p>
+   </div>
+  </header>
+  <main>
+   <div class="card">
+    <div class="grid">
+     <div>
+      <label for="req">
+       Financing requested (SAR)
+      </label>
+      <input id="req" min="0" step="50000" type="number" value="1500000">
+     </div>
+     <div>
+      <label for="adv">
+       Advance rate on eligible receivables:
+       <b id="advv">
+        80%
+       </b>
+      </label>
+      <input id="adv" max="90" min="50" type="range" value="80">
+     </div>
+     <div>
+      <label for="cap">
+       Max share of one buyer in eligible:
+       <b id="capv">
+        25%
+       </b>
+      </label>
+      <input id="cap" max="50" min="10" type="range" value="25">
+     </div>
+     <div>
+      <label for="term">
+       Term:
+       <b id="termv">
+        12
+       </b>
+       months
+      </label>
+      <input id="term" max="36" min="6" step="6" type="range" value="12">
+     </div>
+     <div>
+      <label for="rate">
+       Annual rate:
+       <b id="ratev">
+        12%
+       </b>
+      </label>
+      <input id="rate" max="24" min="6" type="range" value="12">
+     </div>
+    </div>
+   </div>
+   <div class="card verdict" id="verdict">
+   </div>
+   <div class="grid" id="kpis" style="margin-bottom:14px">
+   </div>
+   <div class="grid">
+    <div class="card">
+     <h2>
+      Bank verification
+     </h2>
+     <div id="bankv">
+     </div>
+    </div>
+    <div class="card">
+     <h2>
+      Repayment capacity
+     </h2>
+     <div id="rep">
+     </div>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     Monthly revenue (net of VAT, after credit notes)
+    </h2>
+    <div class="scroll">
+     <div id="chart">
+     </div>
+    </div>
+   </div>
+   <div class="grid">
+    <div class="card">
+     <h2>
+      Receivables aging (open invoices)
+     </h2>
+     <div id="aging">
+     </div>
+    </div>
+    <div class="card">
+     <h2>
+      Data quality checks
+     </h2>
+     <div id="dq">
+     </div>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     Buyers
+    </h2>
+    <div class="scroll" id="buyers">
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     How the indicative limit is calculated
+    </h2>
+    <ul>
+     <li>
+      Eligible receivables = open, non-duplicate invoices that are at most 60 days overdue, including VAT.
+     </li>
+     <li>
+      No single buyer may exceed the share set above; the excess is excluded.
+     </li>
+     <li>
+      Indicative limit = eligible receivables × advance rate. It supports a conversation with the bank; it is not a credit decision.
+     </li>
+    </ul>
+   </div>
+   <div class="card">
+    <h2>
+     Assumptions behind the sample data
+    </h2>
+    <ul>
+     <li>
+      Fictional Jeddah beverage and water distributor selling to 12 hotels, supermarkets, cafés and caterers; 15% VAT; terms of 30, 45 or 60 days by buyer.
+     </li>
+     <li>
+      Seasonality: peaks in the summer heat (Jun–Aug), Ramadan and Eid (Feb–Mar) and Hajj season (May–Jun); slowest in winter; about 0.8% monthly growth.
+     </li>
+     <li>
+      Risk story: the largest buyer (a hotel group, about 19% of sales) leaves many Feb–Jun invoices unpaid, so overdue receivables build up. Two other buyers pay slowly.
+     </li>
+     <li>
+      Deliberate errors: 5 duplicated invoice numbers, 3 credit notes, 3 invoices with missing VAT, and an incomplete export for November 2025 (about 45% of invoices kept). The checks must find them.
+     </li>
+     <li>
+      Data is generated by scripts/generate_data.js (fixed seed 7319) into data/dataset.js, which this page loads. Bank deposits are built from paid invoices with noise: about 5% paid in cash (no deposit), 7% paid slightly short, deposits 1 day early or late, plus 25 unexplained deposits.
+     </li>
+    </ul>
+    <details>
+     <summary>
+      Invoice CSV built from the loaded data
+     </summary>
+     <textarea id="csv" readonly=""></textarea>
+    </details>
+   </div>
+  </main>
+  <script src="data/dataset.js">
+  </script>
+  <script>
+   const D=864e5,ASOF=Date.UTC(2026,8,30);
+const MN=["Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep"];
+const B=DATASET.buyers.map(n=>[n]),inv=DATASET.invoices,bank=DATASET.bank;
+const seen={};inv.forEach(v=>{v.dup=!!seen[v.no];seen[v.no]=1;v.novat=v.type=="invoice"&&Math.abs(v.vat-v.net*.15)>1});
+const fmt=n=>Math.round(n).toLocaleString("en-US"),pc=n=>(n*100).toFixed(0)+"%",ds=t=>new Date(t).toISOString().slice(0,10);
+const $=id=>document.getElementById(id);
+$("csv").value="invoice_no,type,buyer,issue_date,due_date,paid_date,net,vat,total\n"+inv.map(v=>[v.no,v.type,'"'+B[v.b][0]+'"',ds(v.date),ds(v.due),v.paid?ds(v.paid):"",v.net,v.vat,v.net+v.vat].join(",")).join("\n");
+
+function render(){
+const req=+$("req").value||0,adv=$("adv").value/100,cap=$("cap").value/100;
+$("advv").textContent=pc(adv);$("capv").textContent=pc(cap);
+const ok=inv.filter(v=>!v.dup);
+const mrev=Array(12).fill(0);ok.forEach(v=>{const d=new Date(v.date),i=(d.getUTCMonth()+3)%12;mrev[i]+=v.net});
+const rev=mrev.reduce((a,c)=>a+c,0),avg=rev/12,h1=mrev.slice(0,6).reduce((a,c)=>a+c,0),h2=rev-h1;
+const real=ok.filter(v=>v.type=="invoice");
+const byB=B.map((b,i)=>{const x=real.filter(v=>v.b==i),p=x.filter(v=>v.paid),o=x.filter(v=>!v.paid);
+return{n:b[0],rev:x.reduce((a,v)=>a+v.net,0),out:o.reduce((a,v)=>a+v.net+v.vat,0),late:p.length?p.reduce((a,v)=>a+(v.paid-v.due)/D,0)/p.length:0,open:o,od90:o.filter(v=>(ASOF-v.due)/D>90).length}});
+const totRev=byB.reduce((a,b)=>a+b.rev,0);
+const open=real.filter(v=>!v.paid),ar=open.reduce((a,v)=>a+v.net+v.vat,0);
+const bk=[["Not yet due",v=>ASOF<=v.due],["1–30 days overdue",(v,d)=>d>0&&d<=30],["31–60 days",(v,d)=>d>30&&d<=60],["61–90 days",(v,d)=>d>60&&d<=90],["Over 90 days",(v,d)=>d>90]].map(([n,f])=>{const x=open.filter(v=>f(v,(ASOF-v.due)/D));return{n,c:x.length,a:x.reduce((s,v)=>s+v.net+v.vat,0)}});
+const overdueShare=ar?1-bk[0].a/ar:0,over90=bk[4].a;
+let el=byB.map(b=>b.open.filter(v=>(ASOF-v.due)/D<=60).reduce((a,v)=>a+v.net+v.vat,0));
+const totEl=el.reduce((a,c)=>a+c,0),capAmt=cap*totEl;
+const elc=el.map(x=>Math.min(x,capAmt)),eligible=elc.reduce((a,c)=>a+c,0),limit=eligible*adv;
+const top=byB.slice().sort((a,b)=>b.rev-a.rev),top1=top[0].rev/totRev,top3=top.slice(0,3).reduce((a,b)=>a+b.rev,0)/totRev;
+const paidInv=real.filter(v=>v.paid),dtp=paidInv.reduce((a,v)=>a+(v.paid-v.date)/D,0)/paidInv.length;
+const dups=inv.filter(v=>v.dup),cns=inv.filter(v=>v.type=="credit_note"),nov=inv.filter(v=>v.novat);
+const cnt=Array(12).fill(0);real.forEach(v=>cnt[(new Date(v.date).getUTCMonth()+3)%12]++);
+const med=cnt.slice().sort((a,b)=>a-b)[6],thin=cnt.map((c,i)=>c<.6*med?MN[i]:null).filter(Boolean);
+const term=+$("term").value,mr_=+$("rate").value/1200;$("termv").textContent=term;$("ratev").textContent=$("rate").value+"%";
+const pay=req>0?(mr_?req*mr_/(1-Math.pow(1+mr_,-term)):req/term):0;
+// match each paid invoice to a bank deposit: same buyer name, within 3 days, within 5% of the amount
+const used=new Set(),paidReal=real.filter(v=>v.paid),colM=Array(12).fill(0),unm=[];let mCnt=0,mVal=0,pv=0;
+paidReal.forEach(v=>{const tot=v.net+v.vat,nm=B[v.b][0].toUpperCase();pv+=tot;let best=-1,bd=1;
+for(let j=0;j<bank.length;j++){const k=bank[j];if(used.has(j)||k.desc.indexOf(nm)<0||Math.abs(k.date-v.paid)>3*D)continue;const d=Math.abs(k.amount-tot)/tot;if(d<=.05&&d<bd){bd=d;best=j}}
+if(best>=0){used.add(best);mCnt++;mVal+=tot;colM[(new Date(bank[best].date).getUTCMonth()+3)%12]+=bank[best].amount}else unm.push(v)});
+const unmVal=pv-mVal,ud=bank.filter((k,j)=>!used.has(j)),udVal=ud.reduce((a,k)=>a+k.amount,0),mr=mCnt/paidReal.length;
+const avgC=colM.reduce((a,c)=>a+c,0)/12,weak=Math.min(...colM.filter((c,i)=>i>0&&thin.indexOf(MN[i])<0)),inst=pay/avgC,instW=pay/weak;
+const growth=h2/h1-1,issues=dups.length+nov.length+thin.length,lo=(v,g,w)=>v<=g?"ok":v<=w?"warn":"bad";
+const SC=[["Sales growth",growth>=0?"ok":growth>-.15?"warn":"bad",`${growth>=0?"+":""}${pc(growth)} (last 6 vs first 6 months)`],
+["Collections",lo(overdueShare,.15,.3),`${pc(overdueShare)} of open receivables are past due`],
+["Buyer concentration",lo(top1,.25,.4),`top buyer ${pc(top1)}, top 3 ${pc(top3)}`],
+["Data quality",lo(issues,0,10),`${issues} issues to confirm with the customer`],
+["Verification",mr>=.9?"ok":mr>=.75?"warn":"bad",`${pc(mr)} of paid invoices match a bank deposit`],
+["Repayment capacity",lo(instW,.15,.25),`instalment SAR ${fmt(pay)}/month is ${pc(inst)} of average and ${pc(instW)} of the weakest month`]];
+const bads=SC.filter(s=>s[1]=="bad").length,warns=SC.filter(s=>s[1]=="warn").length,rec=Math.min(req,limit);
+const col=bads?"bad":warns?"warn":"ok",txt=bads?"Needs review: key risks to confirm":warns?"Looks sound: a few points to confirm":"Looks sound: no major risks found";
+const worst=byB.slice().sort((a,b)=>b.od90-a.od90)[0],cond=[];
+if(rec<req)cond.push(`Offer SAR ${fmt(rec)} instead of the SAR ${fmt(req)} requested.`);
+if(over90>0)cond.push(`Exclude SAR ${fmt(over90)} that is over 90 days overdue (mostly ${worst.n}) and ask about the dispute.`);
+if(top1>.25)cond.push("Cap the top buyer’s share of eligible receivables.");
+if(thin.length)cond.push(`Get complete invoices for ${thin.join(", ")} before sending to the bank.`);
+if(unm.length)cond.push(`Ask the customer to explain ${unm.length} paid invoices (SAR ${fmt(unmVal)}) that have no bank deposit.`);
+if(instW>.15)cond.push("Consider a longer term or a smaller amount to protect repayment in weak months.");
+$("verdict").style.setProperty("--c",`var(--${col=="ok"?"acc":col})`);
+const tag=s=>`<span class="tag ${s}">${{ok:"OK",warn:"Watch",bad:"Risk"}[s]}</span>`;
+$("verdict").innerHTML=`<div class="l">Insight for a request of SAR ${fmt(req)}</div><div class="big ${col}">${txt}</div><div class="l" style="margin-top:4px">Amount the receivables can support: <b>SAR ${fmt(rec)}</b></div><div class="scroll"><table style="margin:10px 0"><tr><th>Check</th><th>Result</th><th>Detail</th></tr>${SC.map(s=>`<tr><td>${s[0]}</td><td>${tag(s[1])}</td><td style="white-space:normal">${s[2]}</td></tr>`).join("")}</table></div>${cond.length?`<b>Points to confirm</b><ul>${cond.map(c=>`<li>${c}</li>`).join("")}</ul>`:""}`;
+const row=(a,b,c)=>`<tr><td>${a}</td><td class="n">${b}</td><td class="n">${c}</td></tr>`;
+$("bankv").innerHTML=`<table><tr><th></th><th class="n">Count</th><th class="n">SAR</th></tr>${row("Paid invoices (per file)",paidReal.length,fmt(pv))}${row("Matched to a deposit",`${mCnt} (${pc(mr)})`,fmt(mVal))}${row("Paid per file, no deposit",unm.length,fmt(unmVal))}${row("Deposits with no invoice",ud.length,fmt(udVal))}</table><p class="l">Match rule: same buyer name, deposit within 3 days of the paid date, amount within 5%.</p>`;
+$("rep").innerHTML=`<table>${row("Monthly instalment","",fmt(pay))}${row("Average monthly collections (verified)","",fmt(avgC))}${row("Instalment vs average","",pc(inst))}${row("Weakest normal month","",fmt(weak))}${row("Instalment vs weakest month","",pc(instW))}</table><p class="l">Amortising loan over ${term} months. The first month (nothing earlier to collect) and incomplete months are left out of the weakest-month test.</p>`;
+const K=[["Revenue (12 months, net)","SAR "+fmt(rev)],["Average per month","SAR "+fmt(avg)],["Open receivables","SAR "+fmt(ar)],["Eligible receivables","SAR "+fmt(eligible)],["Avg days from invoice to payment",dtp.toFixed(0)+" days"],["Invoices analysed",real.length+" (+"+cns.length+" credit notes)"]];
+$("kpis").innerHTML=K.map(k=>`<div class="card" style="margin:0"><div class="k">${k[1]}</div><div class="l">${k[0]}</div></div>`).join("");
+const mx=Math.max(...mrev);$("chart").innerHTML=`<svg viewBox="0 0 640 220" style="width:100%;min-width:520px" role="img" aria-label="Monthly revenue bar chart">`+mrev.map((v,i)=>{const h=v/mx*150,x=20+i*51;return`<rect x="${x}" y="${170-h}" width="38" height="${h}" rx="3" fill="var(--bar)"/><text x="${x+19}" y="${164-h}" text-anchor="middle">${Math.round(v/1000)}k</text><text x="${x+19}" y="190" text-anchor="middle">${MN[i]}</text>`}).join("")+`<line x1="14" x2="632" y1="${170-avg/mx*150}" y2="${170-avg/mx*150}" stroke="var(--warn)" stroke-dasharray="4 4"/><text x="632" y="${164-avg/mx*150}" text-anchor="end">average ${Math.round(avg/1000)}k</text></svg>`;
+$("aging").innerHTML=`<table><tr><th>Bucket</th><th class="n">Invoices</th><th class="n">SAR</th></tr>${bk.map(b=>`<tr><td>${b.n}</td><td class="n">${b.c}</td><td class="n">${fmt(b.a)}</td></tr>`).join("")}</table>`;
+const chk=[[dups.length?"warn":"ok",`${dups.length} duplicate invoice numbers (${dups.map(v=>v.no).join(", ")||"none"}), excluded`],[cns.length?"warn":"ok",`${cns.length} credit notes netted against revenue`],[nov.length?"warn":"ok",`${nov.length} invoices with missing VAT (${nov.map(v=>v.no).join(", ")||"none"})`],[thin.length?"warn":"ok",thin.length?`Low invoice count in ${thin.join(", ")}`:"All 12 months have normal invoice volume"],["ok","Period covered: Oct 2025 to Sep 2026 (12 of 12 months)"]];
+$("dq").innerHTML=`<ul style="list-style:none;padding:0">`+chk.map(c=>`<li class="${c[0]}">${c[0]=="ok"?"✓":"!"} ${c[1]}</li>`).join("")+`</ul>`;
+$("buyers").innerHTML=`<table><tr><th>Buyer</th><th class="n">Sales share</th><th class="n">Avg days late</th><th class="n">Outstanding</th><th class="n">Eligible</th><th>Note</th></tr>`+byB.map((b,i)=>{const sh=b.rev/totRev,n=b.od90?`<span class="tag bad">${b.od90} over 90d</span>`:b.late>20?`<span class="tag warn">slow payer</span>`:sh>cap?`<span class="tag warn">capped</span>`:"";return`<tr><td>${b.n}</td><td class="n">${pc(sh)}</td><td class="n">${b.late.toFixed(0)}</td><td class="n">${fmt(b.out)}</td><td class="n">${fmt(elc[i])}</td><td>${n}</td></tr>`}).join("")+`</table>`}
+["req","adv","cap","term","rate"].forEach(i=>$(i).addEventListener("input",render));render();
+  </script>
+ </body>
+</html>
