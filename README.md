@@ -141,4 +141,4 @@ deposits belong to no invoice at all (for example owner top-ups).
 5. **More signals**: a payment-trend chart per buyer, and fraud-pattern checks such as many round
    numbers or month-end spikes.
 6. **Connect data sources** instead of uploads, such as open banking for statements and
-   e-invoicing or accounting software for invoices (see Task 5 in the written answers).
+   e-invoicing or accounting software for invoices.
