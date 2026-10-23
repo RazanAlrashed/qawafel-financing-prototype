@@ -1,5 +1,4 @@
 /**
- * generate_data.js
  * Generates 12 months of made-up invoices for a fictional Jeddah beverage distributor
  * ("Red Sea Beverages Trading") and writes them to data/invoices.csv.
  *
@@ -53,7 +52,6 @@ const GAP_MONTH = 1;
 const GAP_KEEP = 0.45;
 
 // ------------------------------------------------- 2. Seeded random generator
-// mulberry32: a small generator that returns the same sequence for the same seed.
 let state = SEED;
 function rand() {
   state |= 0; state = (state + 0x6d2b79f5) | 0;
@@ -149,7 +147,6 @@ fs.mkdirSync(path.dirname(out), { recursive: true });
 fs.writeFileSync(out, header + "\n" + rows.join("\n") + "\n");
 
 // ---------------------------------------------------- 6. Count what is in the data
-// These numbers are computed from the generated rows, not typed by hand.
 const seen = new Set();
 let duplicates = 0, creditNotes = 0, missingVat = 0;
 const perMonth = {};
