@@ -123,7 +123,7 @@ deposits belong to no invoice at all (for example owner top-ups).
 - **Payment dates come from the customer's own file.** The bank matching is the check against that.
 - **The indicative amount is a starting point for discussion**, not a credit decision.
 - **Bank statements are represented as clean transaction rows**, not as real PDF files.
-- **A missing match does not necessarily mean an invoice is invalid. Cash payments, partial payments, combined deposits, and differences in transaction descriptions can explain unmatched items. These cases require review before drawing conclusions.
+- **A missing match does not necessarily mean an invoice is invalid.** Cash payments, partial payments, combined deposits, and differences in transaction descriptions can explain unmatched items. These cases require review before drawing conclusions.
 
 ## What I would do next
 
